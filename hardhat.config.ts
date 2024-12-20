@@ -7,7 +7,7 @@ import "@nomicfoundation/hardhat-ethers";
 const {
   API_URL,
   PRIVATE_KEY,
-  ETHERSCAN_API_KEY
+  BSCSCAN_API_KEY
 } = process.env;
 
 const config: HardhatUserConfig = {
@@ -21,7 +21,7 @@ const config: HardhatUserConfig = {
     }
   },
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY
+    apiKey: BSCSCAN_API_KEY
   },
 };
 

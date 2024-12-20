@@ -11,3 +11,6 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/Lock.ts
 ```
+
+## Contract Address On Binance Smart Chain Test Network
+https://testnet.bscscan.com/address/0xEab468eecba2a5FA12213668eB12079d6ecdEcE6#code
