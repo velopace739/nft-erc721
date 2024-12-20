@@ -7,20 +7,20 @@ describe("Velopace", () => {
   async function deployVelopace() {
     // Contracts are deployed using the first signer/account by default
     const accounts = await ethers.getSigners();
-    const [owner] = accounts;
+    const [deployer] = accounts;
 
     const Contract = await ethers.getContractFactory("Velopace");
-    const contract = await Contract.deploy(owner);
+    const contract = await Contract.deploy(deployer.address);
+    await contract.deployed();
 
     return {
       contract,
-      contractAddress: await contract.getAddress(),
-      deployer: owner,
+      deployer: deployer,
       accounts,
       contractConstructor: {
         name: "Velopace",
         symbol: "VA",
-        owner,
+        owner: deployer,
       },
     }
   }
@@ -28,9 +28,9 @@ describe("Velopace", () => {
   it("Should Return Valid Contract Configurations Passed In Constructor", async () => {
     const { contractConstructor, contract } = await loadFixture(deployVelopace)
 
-    expect(await contract.name()).to.equal(contractConstructor.name)
-    expect(await contract.symbol()).to.equal(contractConstructor.symbol)
-    expect(await contract.owner()).to.equal(contractConstructor.owner)
+    expect(await contract.name).to.equal(contractConstructor.name)
+    expect(await contract.symbol).to.equal(contractConstructor.symbol)
+    expect(await contract.owner).to.equal(contractConstructor.owner)
   })
 
   describe("Minting Functionality", () => {
