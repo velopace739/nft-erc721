@@ -11,6 +11,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Velopace is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     uint256 private _nextTokenId;
+    uint256 MAX_SUPPLY = 100000;
 
     constructor(address initialOwner)
         ERC721("Velopace", "VA")
@@ -18,6 +19,7 @@ contract Velopace is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     {}
 
     function safeMint(address to, string memory uri) public onlyOwner {
+        require(_nextTokenId <= MAX_SUPPLY, "I'm sorry we reached the cap");
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
