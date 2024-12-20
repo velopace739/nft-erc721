@@ -38,5 +38,4 @@ Run an example safe mint token with:
 npx hardhat run .\scripts\interact.ts --network bsc_testnet
 ```
 ## Contract Address
-BSC testnet
-https://testnet.bscscan.com/address/0xEab468eecba2a5FA12213668eB12079d6ecdEcE6#code
+BSC testnet: [0xEab468eecba2a5FA12213668eB12079d6ecdEcE6](https://testnet.bscscan.com/address/0xEab468eecba2a5FA12213668eB12079d6ecdEcE6#code)
