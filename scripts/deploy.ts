@@ -5,7 +5,7 @@ async function main() {
   const [deployer] = await ethers.getSigners();
 
   const velopace = await Velopace.deploy(deployer.address);
-  console.log("Contract deployed to address:", velopace.address);
+  console.log("Contract deployed to address:", await velopace.getAddress());
 }
 
 main()

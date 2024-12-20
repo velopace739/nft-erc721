@@ -11,7 +11,6 @@ describe("Velopace", () => {
 
     const Contract = await ethers.getContractFactory("Velopace");
     const contract = await Contract.deploy(deployer.address);
-    await contract.deployed();
 
     return {
       contract,
@@ -28,9 +27,9 @@ describe("Velopace", () => {
   it("Should Return Valid Contract Configurations Passed In Constructor", async () => {
     const { contractConstructor, contract } = await loadFixture(deployVelopace)
 
-    expect(await contract.name).to.equal(contractConstructor.name)
-    expect(await contract.symbol).to.equal(contractConstructor.symbol)
-    expect(await contract.owner).to.equal(contractConstructor.owner)
+    expect(await contract.name()).to.equal(contractConstructor.name)
+    expect(await contract.symbol()).to.equal(contractConstructor.symbol)
+    expect(await contract.owner()).to.equal(contractConstructor.owner)
   })
 
   describe("Minting Functionality", () => {
