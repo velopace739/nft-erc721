@@ -1,4 +1,4 @@
-# BuyMeACoffee solidity contract
+# ERC721 contract
 
 This repo contains a contract that implements tipping functionality.
 
